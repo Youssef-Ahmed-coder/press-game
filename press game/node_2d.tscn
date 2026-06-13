@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://4pqund3nukl7"]
+
+[ext_resource type="Texture2D" uid="uid://xxflt1aj0qf5" path="res://buyingacat.jpg" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://cl3dxs8s76wn3" path="res://touch_screen_button.gd" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://csqnj4y0ug0mc" path="res://315ad90a-c975-4cf3-90d9-4be66747e75d-1000x500-y8fNALP3iEPdkNZSSjzBtN2xTwAe2ExKf2taOXMM.webp" id="3_0hol4"]
+[ext_resource type="Script" uid="uid://cu6x6qppw5mrh" path="res://Y.gd" id="4_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(1300, 1000)
+
+[sub_resource type="Animation" id="Animation_0e48y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TouchScreenButton:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_0e48y")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TouchScreenButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.114)]
+}
+
+[sub_resource type="Animation" id="Animation_epypp"]
+resource_name = "adam"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TouchScreenButton:texture_normal")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TouchScreenButton:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.114), Vector2(0.11, 0.125)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hol4"]
+_data = {
+&"RESET": SubResource("Animation_0e48y"),
+&"adam": SubResource("Animation_epypp")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(1000, 500)
+
+[sub_resource type="Animation" id="Animation_0hol4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TouchScreenButton2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_q6r6c"]
+resource_name = "youssef"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TouchScreenButton2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.2), Vector2(0.2, 0.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kdubu"]
+_data = {
+&"RESET": SubResource("Animation_0hol4"),
+&"youssef": SubResource("Animation_q6r6c")
+}
+
+[node name="Node2D" type="Node2D" unique_id=73958952]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=339081043]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer" unique_id=904896022]
+position = Vector2(472, 315)
+scale = Vector2(0.1, 0.114)
+texture_normal = ExtResource("1_0e48y")
+shape = SubResource("RectangleShape2D_0e48y")
+action = "y"
+script = ExtResource("2_0e48y")
+
+[node name="Label" type="Label" parent="CanvasLayer/TouchScreenButton" unique_id=659125745]
+offset_left = 71.012024
+offset_top = -1388.4105
+offset_right = 1388.6833
+offset_bottom = 26.572632
+theme_override_font_sizes/font_size = 500
+text = "0
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TouchScreenButton" unique_id=614708358]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_0hol4")
+
+[node name="Label2" type="Label" parent="CanvasLayer/TouchScreenButton" unique_id=819520357]
+offset_left = 30.0
+offset_top = -8.771912
+offset_right = 1280.0
+offset_bottom = 947.36847
+theme_override_font_sizes/font_size = 250
+text = "press me"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=603740564]
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="CanvasLayer2" unique_id=1179505856]
+position = Vector2(0, -2)
+scale = Vector2(0.2, 0.4)
+texture_normal = ExtResource("3_0hol4")
+shape = SubResource("RectangleShape2D_epypp")
+action = "E"
+script = ExtResource("4_0hol4")
+
+[node name="Label" type="Label" parent="CanvasLayer2/TouchScreenButton2" unique_id=756084247]
+texture_filter = 1
+offset_left = -11.111111
+offset_top = -6.060606
+offset_right = 1005.5556
+offset_bottom = 506.0606
+theme_override_font_sizes/font_size = 70
+text = "you must
+have 6
+for 2X CLICK!!!
+( you will loss 26 !!! ) "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/TouchScreenButton2" unique_id=1938911463]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_kdubu")
